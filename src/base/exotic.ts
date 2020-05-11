@@ -29,13 +29,7 @@ export type FromReactType<
 export type ForwardRefAsExoticComponent<
   TOwnProps,
   TDefaultComponent extends React.ReactType
-> = Pick<
-  React.ForwardRefExoticComponent<TDefaultComponent>,
-  Exclude<
-    keyof React.ForwardRefExoticComponent<TDefaultComponent>,
-    "defaultProps"
-  >
-> & {
+> = Omit<React.ForwardRefExoticComponent<TDefaultComponent>, "defaultProps"> & {
   <TAsComponent extends React.ReactType = TDefaultComponent>(
     props: Prefer<
       { as?: TAsComponent } & TOwnProps,
@@ -57,7 +51,7 @@ export type ForwardRefAsExoticComponent<
         | "as"
         | keyof TOwnProps
         // tslint:disable-next-line:no-any
-        | keyof React.ComponentPropsWithoutRef<TDefaultComponent>]: any
+        | keyof React.ComponentPropsWithoutRef<TDefaultComponent>]: any;
     }
   >;
 };
@@ -78,8 +72,7 @@ export function forwardRefAs<
     >
   >,
 ) {
-  const forward = React.forwardRef(factory);
-  (forward as any).defaultProps = defaultProps;
+  const forward = { ...React.forwardRef(factory), defaultProps };
 
   return forward as ForwardRefAsExoticComponent<TOwnProps, TDefaultComponent>;
 }
