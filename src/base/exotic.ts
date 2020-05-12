@@ -51,7 +51,7 @@ export type ForwardRefAsExoticComponent<
         | "as"
         | keyof TOwnProps
         // tslint:disable-next-line:no-any
-        | keyof React.ComponentPropsWithoutRef<TDefaultComponent>]: any;
+        | keyof React.ComponentPropsWithoutRef<TDefaultComponent>]: any
     }
   >;
 };
