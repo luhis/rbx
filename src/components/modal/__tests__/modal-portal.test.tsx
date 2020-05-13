@@ -25,7 +25,7 @@ const DEFAULT_ELEMENT = "div";
 const BULMA_CLASS_NAME = "modal";
 
 const makeNode = (props: ModalPortalProps) => {
-  const withDefaults = { document, ...props };
+  const withDefaults = { ...props, document };
 
   return <ModalPortal {...withDefaults} />;
 };

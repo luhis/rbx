@@ -1,3 +1,4 @@
+//export type Prefer<P, T> = {} extends P ? P & Omit<T, keyof P> : T;
 export type Prefer<P, T> = P & Omit<T, keyof P>;
 
 // https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type/50375286#50375286

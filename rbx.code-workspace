@@ -18,5 +18,8 @@
     {
       "path": "examples/with-script"
     }
-  ]
+  ],
+  "settings": {
+    "typescript.tsdk": "rbx\\node_modules\\typescript\\lib"
+  }
 }

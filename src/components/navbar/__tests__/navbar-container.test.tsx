@@ -96,7 +96,6 @@ describe(`${DISPLAY_NAME} component`, () => {
                   return undefined;
                 }}
               </NavbarContext.Consumer>
-              />
             </NavbarContainer>
           );
           withEnzymeMount({ node }, () => {
